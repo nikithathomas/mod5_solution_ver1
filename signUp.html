@@ -1,0 +1,34 @@
+
+<fieldset>
+	Sign Up
+	<form name='regForm' novalidate>
+		<label for="firstName">First Name</label> <input type="text"
+			name="firstName" placeholder="Enter The First Name"
+			ng-model="signUpCtrl.firstName" required> <span
+			ng-if="regForm.firstName.$error.required && regForm.firstName.$touched">
+			Please enter your First Name </span> <br> <label for="lastName">Last
+			Name</label> <input type="text" name="lastName"
+			placeholder="Enter The Last Name" ng-model="signUpCtrl.lastName"
+			required> <span
+			ng-if="regForm.lastName.$error.required && regForm.lastName.$touched">
+			Please enter your First Name </span> <br> <label for="email">Email
+			Address</label> <input type="email" name="email" placeholder="Email"
+			ng-model="signUpCtrl.email" required> <span
+			ng-if="regForm.email.$invalid && regForm.email.$touched"> Must
+			be a valid email address: handle@domain format </span> <br> <label
+			for="phone">Phone Number</label> <input type="text" name="phone"
+			placeholder="Phone ###-###-####" ng-model="signUpCtrl.phone"
+			pattern="(\d{3})-(\d{3})-(\d{4})"> <span
+			ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+			Phone must be in the format ###-###-####. </span> <br> <label
+			for="shortName">Phone Number</label> <input type="text"
+			name="shortName" placeholder="Enter your favourite item's short_name"
+			ng-model="signUpCtrl.shortName"> <span
+			ng-if="regForm.shortName.$error.required && regForm.shortName.$touched">
+			You must enter your favourite item in the menu </span> <br>
+<span ng-if="!signUpCtrl.items"></span>
+		<button ng-disabled="regForm.$invalid"
+			ui-sref="public.signUpSubmit({firstName:signUpCtrl.firstName,lastName:signUpCtrl.lastName,email:signUpCtrl.email,phone:signUpCtrl.phone,shortName:signUpCtrl.shortName})">Submit</button>
+
+	</form>
+</fieldset>
